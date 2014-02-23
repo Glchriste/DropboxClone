@@ -8,19 +8,25 @@
 {% endblock %}
 
 {% block body %}
-  <header>
-    <h1>Dropbox | Web Portal</h1>
-  </header>
+  <!-- <header>
+    <h1>Dropbox Clone</h1>
+  </header> -->
 
+  <!-- <section>
+    <ul>
+      <li><a href="/">home</a></li>
+      <li><a href="/logout/">logout</a></li>
+    </ul>
+  </section> -->
+
+  {% block content %}{% endblock %}
+  
   <section>
     <ul>
       <li><a href="/">home</a></li>
       <li><a href="/logout/">logout</a></li>
     </ul>
   </section>
-
-  {% block content %}{% endblock %}
-
   <footer>
     <span></span>
   </footer>

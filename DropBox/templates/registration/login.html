@@ -17,6 +17,7 @@
   <section>
     {% if form.errors %}
       <p>Your username and password didn't match, please try again.</p>
+      <p>Need to <a href="/register/">register</a>?</p>
     {% endif %}
     <form method="post" action=".">
       {% csrf_token %}
@@ -35,5 +36,6 @@
       {% endif %}
       <input type="submit" value="login" />
     </form>
+    <br><a href="/register/">Register</a>
   </section>
 {% endblock %}
