@@ -1,0 +1,75 @@
+{% extends "portal/portal.html" %}
+{% comment %}
+  Main page of the portal.
+{% endcomment %}
+
+{% block head %}
+	<style type="text/css">
+	            .centered
+	            {
+	                text-align:center;
+	            }
+	            .custom-btn {
+	                white-space: normal;
+	                width: 200px !important;
+	            }
+	</style>
+    <meta charset="utf-8">
+    <title>Home</title>
+    {% load staticfiles %}
+    <link href="{% static 'portal/css/dropzone.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block body %}
+  <section>
+    <h2>Welcome, {{ user.username }}</h2>
+    <p>This is the main page of the web portal.</p>
+  </section>
+		<script src="{% static 'portal/js/jquery-1.11.0.min.js' %}"></script>
+        <script src="{% static 'portal/js/dropzone.js' %}"></script>
+
+        <!-- Load Bootstrap -->
+        {% load bootstrap3 %}
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %} {% bootstrap_javascript %}
+
+        <!-- IMPORTANT enctype attribute! -->
+        <div id="upload-box">
+        <form class="dropzone" action="{% url 'portal:portal_main_page' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        </form>
+        </div>
+        <div class="centered">
+            {% buttons %}
+            <button type="submit" class="btn btn-primary custom-btn" id="submit-all">
+                {% bootstrap_icon "cloud-upload" %} Upload
+            </button>
+            {% endbuttons %}
+        </div>
+        
+        <script type="text/javascript">
+            Dropzone.options.myDropzone = {
+ 
+                // Prevents Dropzone from uploading dropped files immediately
+                autoProcessQueue : false,
+ 
+                init : function() {
+                    var submitButton = document.querySelector("#submit-all")
+                    myDropzone = this;
+ 
+                    submitButton.addEventListener("click", function() {
+                        myDropzone.processQueue();
+                        // Tell Dropzone to process all queued files.
+                    });
+ 
+                    // You might want to show the submit button only when
+                    // files are dropped here:
+                    this.on("addedfile", function() {
+                        // Show submit button here and/or inform user to click it.
+                    });
+ 
+                }
+            };
+        </script>
+{% endblock %}

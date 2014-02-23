@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- {% load staticfiles %} -->
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+  	<!-- Load Bootstrap -->
+  	<script src="{% static 'portal/js/jquery-1.11.0.min.js' %}"></script>
+  	<!-- {% load bootstrap3 %}
+  	{# Load CSS and JavaScript #}
+  	{% bootstrap_css %} {% bootstrap_javascript %} -->
+    {% block body %}{% endblock %}
+  </body>
+</html>
