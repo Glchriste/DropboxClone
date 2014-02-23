@@ -8,6 +8,7 @@ A simple clone of Dropbox that uses Django and Dropzone.js.
 * User log-in system
 * File upload system (requires user to be logged-in)
 * Files are saved to user folders
+
 ### Author:
 Grace Christenbery
 
