@@ -16,6 +16,7 @@ Grace Christenbery
 
 * [Python 2.x](http://www.python.org/download/)
 * [Django](https://www.djangoproject.com/)
+* [Django-Bootstrap3] (https://github.com/dyve/django-bootstrap3)
 
 ### Instructions
 
